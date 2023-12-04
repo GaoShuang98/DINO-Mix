@@ -11,13 +11,13 @@ The link of this paper:[[ArXiv](https://arxiv.org/abs/2311.00230)]
 
 The architecture of DINO-Mix as follows:
 
-<img src="image/README/architecture.png" width="700px">
+<img src="image/readme/architecture.png" width="700px">
 
 ## Trained models of DINO-Mix
 
 All models have been trained on GSV-Cities dataset (https://github.com/amaralibey/gsv-cities).
 
-<img src="image/README/DINO-Mix to other methods.png" width="750px">
+<img src="image/readme/DINO-Mix to other methods.png" width="750px">
 
 ### Weights
 
