@@ -52,7 +52,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td>87.71</td>
     <td>94.25</td>
     <td>96.11</td>
-    <td>96.11</td>
+    <td>4.2G</td>
     <td><a href="https://pan.baidu.com/s/1I9PFuHw6FW7rPeV0vkR_0A">LINK</a></td>
   </tr>
   <tr>
