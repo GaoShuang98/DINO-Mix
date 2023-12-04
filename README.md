@@ -69,7 +69,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td><a href="https://pan.baidu.com/s/1G7Kah4ThLZct2tg_x9Mr-A">LINK</a></td>
   </tr>
   <tr>
-    <td>ViTb14-Mix</td>
+    <td><b>ViTb14-Mix</b></td>
     <td>2</td>
     <td>4096</td>
     <td>94.37</td>
