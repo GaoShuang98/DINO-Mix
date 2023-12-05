@@ -8,6 +8,7 @@ This is the official repo for "**DINO-Mix: Enhancing Visual Place Recognition wi
 
 
 The link of this paper:[[ArXiv](https://arxiv.org/abs/2311.00230)]  <b>Under review</b>
+
 The architecture of DINO-Mix as follows:
 
 <img src="image/readme/architecture.png" width="700px">
