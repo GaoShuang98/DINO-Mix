@@ -193,3 +193,9 @@ model.load_state_dict(model_dict_weight)
 	year = {2023},
 }
 ```
+
+## Acknowledgements
+This code is based on the amazing work of:
+ - [MixVPR](https://github.com/amaralibey/MixVPR)
+ - [GSV-Cities](https://github.com/amaralibey/gsv-cities)
+ - [DINOv2](https://github.com/facebookresearch/dinov2)
