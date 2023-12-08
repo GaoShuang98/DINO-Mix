@@ -1,6 +1,6 @@
-# DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixer
+# DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixing
 
-This is the official repo for "**DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixer"**
+This is the official repo for "**DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixing"**
 
 ### Summary
 
