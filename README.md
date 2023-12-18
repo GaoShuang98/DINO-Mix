@@ -31,6 +31,8 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <th colspan="3">Pitts30k-test</th>
     <th rowspan="3">Size</th>
     <th rowspan="2">Baidu Netdisk Password：DVPR<br></th>
+    <th rowspan="2">Google Drive<br></th>
+	  
   </tr>
   <tr>
     <th>Top1</th>
@@ -54,6 +56,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td>96.11</td>
     <td>4.2G</td>
     <td><a href="https://pan.baidu.com/s/1I9PFuHw6FW7rPeV0vkR_0A">LINK</a></td>
+    <td>--</td>
   </tr>
   <tr>
     <td>ViTl14-Mix</td>
@@ -67,6 +70,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td>97.62</td>
     <td>1.1G</td>
     <td><a href="https://pan.baidu.com/s/1G7Kah4ThLZct2tg_x9Mr-A">LINK</a></td>
+    <td>--</td>
   </tr>
   <tr>
     <td><b>ViTb14-Mix</b></td>
@@ -80,6 +84,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td>97.17</td>
     <td>334.4M</td>
     <td><a href="https://pan.baidu.com/s/1KS0R4_yneM5eEk3MozkfoQ">LINK</a></td>
+    <td><a href="https://drive.google.com/file/d/1-hcV5UvOLK-ZQIvWWz8qDke_FLQB6mc5/view?usp=sharing">LINK(BEST)</a></td>
   </tr>
   <tr>
     <td>ViTs14-Mix</td>
@@ -93,6 +98,7 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
     <td>97.01</td>
     <td>86.7M</td>
     <td><a href="https://pan.baidu.com/s/1GRMb3qQWXIQo8sECl5dJvw">LINK</a></td>
+    <td>--</td>
   </tr>
 </tbody>
 </table>
@@ -147,7 +153,7 @@ from DINO_Mix import VPRModel
 model = VPRModel(
     backbone_arch='dinov2_vitb14',
     pretrained=True,
-    layer1=8,
+    layer1=7,
     use_cls=False,
     norm_descs=True,
 
