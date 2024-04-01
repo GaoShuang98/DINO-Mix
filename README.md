@@ -11,7 +11,7 @@ The link of this paper:[[ArXiv](https://arxiv.org/abs/2311.00230)]
 
 The framework of DINO-Mix as follows:
 
-<img src="image/readme/architecture.png" width="700px">
+<img src="image/readme/DINO-Mix to other methods.png" width="700px">
 
 ## Trained models of DINO-Mix
 
