@@ -1,2 +1,0 @@
-
-# The folder labeled models.backbones.EMO was my attempt to use EMO as backbone (see article Rethinking Mobile Block for Efficient Neural Models) , not a part of the DINO-Mix, but EMO didn't work so well, so I gave up
