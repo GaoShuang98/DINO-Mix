@@ -42,9 +42,7 @@ if __name__ == '__main__':
         # layers_to_freeze=2,
         # layers_to_crop=[4],  # 4 crops the last resnet layer, 3 crops the 3rd, ...etc
 
-        layer1=8,  # *层的norm1
-        # layer2=28,
-        # layer3=31,
+        layer1=7, 
         use_cls=False,
         norm_descs=True,
 
@@ -112,7 +110,6 @@ if __name__ == '__main__':
 
     print(model)
 
-
     # ###########################################resume the trained model #############################################
     # # retrain where annotations are needed start here
     # # resume the model
@@ -137,7 +134,6 @@ if __name__ == '__main__':
     # print("\n\033[1;33;44m Reminder: It is normal for the head part to not be loaded, and it is wrong for the backbone part to not be loaded。\033[0m")
     # print("\n\n")
     # # ###########################################################################################
-
 
     # model params saving using Pytorch Lightning
     # we save the best 3 models according to Recall@1 on pittsburgh val
