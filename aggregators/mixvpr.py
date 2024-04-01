@@ -47,7 +47,7 @@ class MixVPR(nn.Module):
         self.mlp_ratio = mlp_ratio  # ratio of the mid projection layer in the mixer block
 
         hw = in_h * in_w
-        # 定义一个Sequential容器，用于叠加FeatureMixerLayer
+                     
         self.mix = nn.Sequential(*[FeatureMixerLayer(in_dim=hw, mlp_ratio=mlp_ratio) for _ in range(self.mix_depth)
         ])
         self.channel_proj = nn.Linear(in_channels, out_channels)
@@ -55,12 +55,12 @@ class MixVPR(nn.Module):
 
     def forward(self, x):
         x = x.flatten(2)
-        x = self.mix(x)  # Feature-Mixer模块
-        x = x.permute(0, 2, 1)  # 将数据转换成 0块 2行1列
+        x = self.mix(x)
+        x = x.permute(0, 2, 1)
         x = self.channel_proj(x)
-        x = x.permute(0, 2, 1)  # 将数据转换成 0块 2行1列
+        x = x.permute(0, 2, 1)
         x = self.row_proj(x)
-        x = F.normalize(x.flatten(1), p=2, dim=-1)  # 将x展平,并正则化
+        x = F.normalize(x.flatten(1), p=2, dim=-1) 
         return x
 
 
