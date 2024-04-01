@@ -13,7 +13,7 @@ from collections import OrderedDict
 
 
 
-class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule模块
+class VPRModel(pl.LightningModule):
     """This is the main model for Visual Place Recognition
     we use Pytorch Lightning for modularity purposes.
 
@@ -22,7 +22,7 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
     """
 
     def __init__(self,
-                 # ---- Backbone 主干网络
+                 # ---- Backbone
                  backbone_arch='dinov2_vitg14',
                  pretrained=True,
                  layers_to_freeze=1,
@@ -32,11 +32,11 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
                  norm_descs=True,
                  device="cuda",
 
-                 # ---- Aggregator 聚合方法
+                 # ---- Aggregator
                  agg_arch='MixVPR',  # CosPlace, NetVLAD, GeM
                  agg_config={},
 
-                 # ---- Train HypeParameters 训练超参数
+                 # ---- Train HypeParameters
                  lr=0.03,
                  optimizer='sgd',
                  weight_decay=1e-3,
@@ -45,16 +45,16 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
                  milestones=[5, 10, 15],
                  lr_mult=0.3,
 
-                 # ----- Loss 损失函数
+                 # ----- Loss
                  loss_name='MultiSimilarityLoss',
                  miner_name='MultiSimilarityMiner',
                  miner_margin=0.1,
                  faiss_gpu=False
                  ):
         super().__init__()
-        self.encoder_arch = backbone_arch  # 主干网络名称
-        self.pretrained = pretrained  # 是否预训练
-        self.layers_to_freeze = layers_to_freeze  # 冻结网络层名称
+        self.encoder_arch = backbone_arch 
+        self.pretrained = pretrained 
+        self.layers_to_freeze = layers_to_freeze  
         self.layers_to_crop = layers_to_crop  # layers_to_crop=[4],  # 4 crops the last resnet layer, 3 crops the 3rd, ...etc
         self.layer1 = layer1
         self.use_cls = use_cls
@@ -62,17 +62,17 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
 
 
         self.agg_arch = agg_arch  # CosPlace, NetVLAD, GeM
-        self.agg_config = agg_config  # 聚合方法参数
+        self.agg_config = agg_config
 
-        self.lr = lr  # 学习率
-        self.optimizer = optimizer  # 优化器
-        self.weight_decay = weight_decay  # 权重衰减 防止过拟合避免梯度爆炸
-        self.momentum = momentum  # SGD中的momentum
+        self.lr = lr 
+        self.optimizer = optimizer 
+        self.weight_decay = weight_decay
+        self.momentum = momentum 
         self.warmup_steps = warmup_steps
         self.milestones = milestones
         self.lr_mult = lr_mult
 
-        self.loss_name = loss_name  # 损失函数名称
+        self.loss_name = loss_name 
         self.miner_name = miner_name
         self.miner_margin = miner_margin
 
@@ -119,9 +119,9 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
                 pg['lr'] = lr_scale * self.lr
         optimizer.step(closure=optimizer_closure)
 
-    #  The loss function call (this method will be called at each training iteration) 损失函数调用（此方法将在每次训练迭代中调用）
+    #  The loss function call (this method will be called at each training iteration)
     def loss_function(self, descriptors, labels):
-        # we mine the pairs/triplets if there is an online mining strategy 如果有一个在线挖掘策略，我们就挖掘 对比损失/三元组损失
+        # we mine the pairs/triplets if there is an online mining strategy 
         if self.miner is not None:
             miner_outputs = self.miner(descriptors, labels)
             loss = self.loss_fn(descriptors, labels, miner_outputs)
@@ -145,12 +145,12 @@ class VPRModel(pl.LightningModule):  # 继承pytorch-lightning.LightningModule�
 
         # keep accuracy of every batch and later reset it at epoch start
         self.batch_acc.append(batch_acc)
-        # log it 记录日志
+        # log it
         self.log('b_acc', sum(self.batch_acc) /
                  len(self.batch_acc), prog_bar=True, logger=True)
         return loss
 
-    # This is the training step that's executed at each iteration 每次迭代时执行的训练步骤
+    # This is the training step that's executed at each iteration 
     def training_step(self, batch, batch_idx):
         places, labels = batch
 
