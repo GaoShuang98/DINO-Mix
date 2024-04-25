@@ -12,21 +12,21 @@ from torch.utils.data import Dataset
 # performance is exactly the same as if you use VPR-Bench.
 
 
-# DATASET_ROOT = 'J:\zcl\datasets\spedtest\\'          # 自己电脑路径
+# DATASET_ROOT = 'J:\zcl\datasets\spedtest\\'          # Own computer path
 # GT_ROOT = 'J:\zcl\zcl_MixVPR-main(train)\datasets\\' # BECAREFUL, this is the ground truth that comes with GSV-Cities
 
-DATASET_ROOT = 'D:\zcl\datasets\spedtest\\'          # 自己电脑路径
+DATASET_ROOT = 'D:\zcl\datasets\spedtest\\'          # Own computer path
 GT_ROOT = 'D:\zcl\zcl_MixVPR-main(train)\datasets\\' # BECAREFUL, this is the ground truth that comes with GSV-Cities
 
 
-# DATASET_ROOT = 'E:\zcl\datasets\spedtest\\'          # 自己电脑路径
+# DATASET_ROOT = 'E:\zcl\datasets\spedtest\\'          # Own computer path
 # GT_ROOT = 'E:\zcl\zcl_MixVPR-main(train)\datasets\\' # BECAREFUL, this is the ground truth that comes with GSV-Cities
 
-# DATASET_ROOT = 'E:\zcl\datasets\spedtest\\'            # 师兄电脑路径
+# DATASET_ROOT = 'E:\zcl\datasets\spedtest\\'            # Own computer path
 # GT_ROOT = 'E:\zcl\zcl_MixVPR-main(train)\datasets\\'   # BECAREFUL, this is the ground truth that comes with GSV-Cities
 
 
-# 判断路径是否存在
+# Determines whether a path exists
 path_obj = Path(DATASET_ROOT)
 if not path_obj.exists():
     raise Exception(f'Please make sure the path {DATASET_ROOT} to SPED dataset is correct')
