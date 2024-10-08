@@ -44,22 +44,22 @@ class DinoV2_self(nn.Module):
 
         print(f'loading DINOv2 model（{self.model_name}）...')
         if 'vitg14' in self.model_name:
-            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitg14')
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', ' dinov2_vitg14')
             if self.layer1 > 39:
                 print('Please confirm the correctness of the layer! The highest block layer of vitg14 is 39 layers')
                 exit()
         elif 'vitl14' in self.model_name:
-            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitl14')
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', ' dinov2_vitl14')
             if self.layer1 > 23:
                 print('Please confirm the correctness of the layer! The highest block layer of vitl14 is 23 layers')
                 exit()
         elif 'vitb14' in self.model_name:
-            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitb14')
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', ' dinov2_vitb14')
             if self.layer1 > 11:
                 print('Please confirm the correctness of the layer! The highest block layer of VITB14 is 11 layers')
                 exit()
         elif 'vits14' in self.model_name:
-            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vits14')
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', ' dinov2_vits14')
             if self.layer1 > 11:
                 print('Please confirm the correctness of the layer! The highest block layer of vits14 is 11 layers')
                 exit()
