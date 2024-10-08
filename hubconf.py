@@ -44,7 +44,7 @@ class VPRModel(torch.nn.Module):
 
                  ):
         super().__init__()
-        self.encoder_arch = backbone_arch
+        self.backbone_arch = backbone_arch
         self.pretrained = pretrained
         self.layer1 = layer1
         self.use_cls = use_cls

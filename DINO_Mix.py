@@ -51,7 +51,7 @@ class VPRModel(pl.LightningModule):
                  faiss_gpu=False
                  ):
         super().__init__()
-        self.encoder_arch = backbone_arch 
+        self.backbone_arch = backbone_arch
         self.pretrained = pretrained 
         # self.layers_to_freeze = layers_to_freeze
         # self.layers_to_crop = layers_to_crop  # layers_to_crop=[4],  # 4 crops the last resnet layer, 3 crops the 3rd, ...etc
@@ -84,8 +84,8 @@ class VPRModel(pl.LightningModule):
 
         # ----------------------------------
         # get the backbone and the aggregator
-        self.backbone = helper.get_backbone(backbone_arch, pretrained, layer1=self.layer1,  use_cls=self.use_cls, norm_descs=self.norm_descs)
-        self.aggregator = helper.get_aggregator(agg_arch, agg_config)
+        self.backbone = helper.get_backbone(self.backbone_arch, self.pretrained, layer1=self.layer1,  use_cls=self.use_cls, norm_descs=self.norm_descs)
+        self.aggregator = helper.get_aggregator(self.agg_arch, self.agg_config)
 
     # the forward pass of the lightning model
     def forward(self, x):
