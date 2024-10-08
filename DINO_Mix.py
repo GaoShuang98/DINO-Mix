@@ -23,14 +23,13 @@ class VPRModel(pl.LightningModule):
 
     def __init__(self,
                  # ---- Backbone
-                 backbone_arch='dinov2_vitg14',
+                 backbone_arch='dinov2_vitb14',
                  pretrained=True,
                  layers_to_freeze=1,
                  layers_to_crop=[],
                  layer1=20,
                  use_cls=False,
                  norm_descs=True,
-                 device="cuda",
 
                  # ---- Aggregator
                  agg_arch='MixVPR',  # CosPlace, NetVLAD, GeM
@@ -54,12 +53,11 @@ class VPRModel(pl.LightningModule):
         super().__init__()
         self.encoder_arch = backbone_arch 
         self.pretrained = pretrained 
-        self.layers_to_freeze = layers_to_freeze  
-        self.layers_to_crop = layers_to_crop  # layers_to_crop=[4],  # 4 crops the last resnet layer, 3 crops the 3rd, ...etc
+        # self.layers_to_freeze = layers_to_freeze
+        # self.layers_to_crop = layers_to_crop  # layers_to_crop=[4],  # 4 crops the last resnet layer, 3 crops the 3rd, ...etc
         self.layer1 = layer1
         self.use_cls = use_cls
         self.norm_descs = norm_descs
-
 
         self.agg_arch = agg_arch  # CosPlace, NetVLAD, GeM
         self.agg_config = agg_config
@@ -87,7 +85,6 @@ class VPRModel(pl.LightningModule):
         # ----------------------------------
         # get the backbone and the aggregator
         self.backbone = helper.get_backbone(backbone_arch, pretrained, layer1=self.layer1,  use_cls=self.use_cls, norm_descs=self.norm_descs)
-        # self.backbone = helper.get_backbone(backbone_arch=backbone_arch, layers_to_freeze=layers_to_freeze, layers_to_crop=layers_to_crop)
         self.aggregator = helper.get_aggregator(agg_arch, agg_config)
 
     # the forward pass of the lightning model

@@ -17,17 +17,14 @@ _DINO_FACETS = Literal["query", "key", "value", "token"]
 class DinoV2_self(nn.Module):
     """
         Extract features from an intermediate layer in Dino-v2
-        从 Dino-v2 中的中间层提取特征
     """
 
-    def __init__(self, model_name: _DINO_V2_MODELS, layer1: int = 39,  facet1: _DINO_FACETS = "value", use_cls=False,
+    def __init__(self, model_name: _DINO_V2_MODELS, layer1: int = 39, use_cls=False,
                  norm_descs=True, device: str = "cuda:0", pretrained=True) -> None:
         """
             Parameters:
             - dino_model:   The DINO-v2 model to use
             - layer:        The layer to extract features from
-            - facet:    "query", "key", or "value" for the attention
-                        facets. "token" for the output of the layer.
             - use_cls:  If True, the CLS token (first item) is also
                         included in the returned list of descriptors.
                         Otherwise, only patch descriptors are used.
@@ -35,10 +32,10 @@ class DinoV2_self(nn.Module):
             - device:   PyTorch device to use
         """
         super().__init__()
-        self.model_name = model_name.lower()  # 将大写转化为小写
+        self.model_name = model_name.lower()
         self.layer1 = layer1
 
-        self.pretrained = pretrained  # 是否采用与训练参数
+        self.pretrained = pretrained
         self.use_cls = use_cls
         self.norm_descs = norm_descs
         self.device = torch.device(device)
@@ -47,31 +44,27 @@ class DinoV2_self(nn.Module):
 
         print(f'loading DINOv2 model（{self.model_name}）...')
         if 'vitg14' in self.model_name:
-            self.dino_model = torch.hub.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2', self.model_name, trust_repo=True, source='local')  # 加载DINOv2预训练模型
-            self.dino_model.load_state_dict(torch.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2_vitg14_pretrain.pth'))
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitg14')
             if self.layer1 > 39:
-                print('请确认layer的正确性！vitg14最高block层为39层')
+                print('Please confirm the correctness of the layer! The highest block layer of vitg14 is 39 layers')
                 exit()
         elif 'vitl14' in self.model_name:
-            self.dino_model = torch.hub.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2', self.model_name, trust_repo=True, source='local')  # 加载DINOv2预训练模型
-            self.dino_model.load_state_dict(torch.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2_vitl14_pretrain.pth'))
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitl14')
             if self.layer1 > 23:
-                print('请确认layer的正确性！vitl14最高block层为23层')
+                print('Please confirm the correctness of the layer! The highest block layer of vitl14 is 23 layers')
                 exit()
         elif 'vitb14' in self.model_name:
-            self.dino_model = torch.hub.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2', self.model_name, trust_repo=True, source='local')  # 加载DINOv2预训练模型
-            self.dino_model.load_state_dict(torch.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2_vitb14_pretrain.pth'))
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vitb14')
             if self.layer1 > 11:
-                print('请确认layer的正确性！vitb14最高block层为12层')
+                print('Please confirm the correctness of the layer! The highest block layer of VITB14 is 11 layers')
                 exit()
         elif 'vits14' in self.model_name:
-            self.dino_model = torch.hub.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2', self.model_name, trust_repo=True, source='local')  # 加载DINOv2预训练模型
-            self.dino_model.load_state_dict(torch.load(r'D:\python_code\MixVPR(hgs)\models\backbones\facebookresearch_dinov2_main\dinov2_vits14_pretrain.pth'))
+            self.dino_model = torch.hub.load('facebookresearch/dinov2', 'vits14')
             if self.layer1 > 11:
-                print('请确认layer的正确性！vits14最高block层为12层')
+                print('Please confirm the correctness of the layer! The highest block layer of vits14 is 11 layers')
                 exit()
         else:
-            print(f'模型名称定义错误，请检查model_name:{self.dino_model}是否正确')
+            print(f'The model name definition is incorrect, please check model_name:{self.dino_model}')
 
 
         self.dino_model = self.dino_model.to(self.device)
