@@ -144,15 +144,16 @@ All models have been trained on GSV-Cities dataset (https://github.com/amaralibe
 
 Code to load the ViTb14-mix model from torch_hub is as follows:
 
-```
+```python
 import torch
 model = torch.hub.load('GaoShuang98/DINO-Mix', 'dino_mix', pretrained=True)
 ```
 
 Code to load the pretrained weights is as follows:
 
-```
+```python
 from DINO_Mix import VPRModel
+import torch
 
 # Note that images must be resized to 224x224
 model = VPRModel(
