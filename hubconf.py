@@ -75,4 +75,8 @@ def dino_mix(pretrained=True, **kwargs):
         checkpoint_url = "https://github.com/GaoShuang98/DINO-Mix/releases/download/v1.0.0/dinov2_vitb14_mix.ckpt"
         state_dict = torch.hub.load_state_dict_from_url(checkpoint_url, progress=True)
         model.load_state_dict(state_dict['state_dict'])
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
+
     return model

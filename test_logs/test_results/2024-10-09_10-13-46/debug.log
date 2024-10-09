@@ -1,0 +1,21 @@
+2024-10-09 10:13:46   Arguments: Namespace(infer_batch_size=16, backbone='dinov2_vitb14', l2='before_pool', aggregation='mixvpr', in_channels=768, in_h=16, in_w=16, out_channels=1024, mix_depth=2, mlp_ratio=1, out_rows=4, layer1=7, pretrained=True, seed=0, device='cuda', num_workers=7, resize=[224, 224], test_method='hard_resize', efficient_ram_testing=False, val_positive_dist_threshold=25, recall_values=[1, 2, 3, 4, 5, 10, 15, 20, 25, 50, 100, 200], datasets_folder='D:\\Datasets', dataset_name='pitts30k', pca_dataset_folder=None, save_dir='test_logs\\test_results\\2024-10-09_10-13-46')
+2024-10-09 10:13:46   The outputs are being saved in test_logs\test_results\2024-10-09_10-13-46
+2024-10-09 10:13:46   Test set: < BaseDataset, pitts30k - #database: 10000; #queries: 6816 >
+2024-10-09 10:15:35   Recalls on < BaseDataset, pitts30k - #database: 10000; #queries: 6816 >: R@1: 91.681, R@2: 93.926, R@3: 94.894, R@4: 95.496, R@5: 95.892, R@10: 97.168, R@15: 97.711, R@20: 98.078, R@25: 98.327, R@50: 98.768, R@100: 99.076, R@200: 99.398
+2024-10-09 10:15:35   FLOPs: 357888557056.0, Inference Time: 0.010998964309692383
+2024-10-09 10:15:36   Test set: < BaseDataset, pitts250k - #database: 83952; #queries: 8280 >
+2024-10-09 10:22:56   Recalls on < BaseDataset, pitts250k - #database: 83952; #queries: 8280 >: R@1: 94.577, R@2: 96.763, R@3: 97.524, R@4: 98.007, R@5: 98.297, R@10: 99.094, R@15: 99.360, R@20: 99.493, R@25: 99.565, R@50: 99.746, R@100: 99.843, R@200: 99.915
+2024-10-09 10:22:56   FLOPs: 357888557056.0, Inference Time: 0.011999368667602539
+2024-10-09 10:22:56   Test set: < BaseDataset, sf-xl-val - #database: 8015; #queries: 7993 >
+2024-10-09 10:24:38   Recalls on < BaseDataset, sf-xl-val - #database: 8015; #queries: 7993 >: R@1: 89.253, R@2: 91.930, R@3: 93.244, R@4: 94.145, R@5: 94.795, R@10: 96.447, R@15: 96.985, R@20: 97.510, R@25: 97.773, R@50: 98.724, R@100: 99.249, R@200: 99.562
+2024-10-09 10:24:38   FLOPs: 357888557056.0, Inference Time: 0.011998653411865234
+2024-10-09 10:24:39   Test set: < BaseDataset, tokyo247 - #database: 75984; #queries: 315 >
+2024-10-09 10:30:54   Recalls on < BaseDataset, tokyo247 - #database: 75984; #queries: 315 >: R@1: 91.746, R@2: 93.968, R@3: 94.603, R@4: 95.873, R@5: 95.873, R@10: 97.143, R@15: 97.460, R@20: 98.095, R@25: 98.413, R@50: 98.730, R@100: 98.730, R@200: 99.048
+2024-10-09 10:30:54   FLOPs: 357888557056.0, Inference Time: 0.01199960708618164
+2024-10-09 10:30:55   Test set: < BaseDataset, nordland - #database: 27592; #queries: 27592 >
+2024-10-09 10:35:45   Recalls on < BaseDataset, nordland - #database: 27592; #queries: 27592 >: R@1: 80.179, R@2: 85.441, R@3: 87.873, R@4: 89.627, R@5: 90.863, R@10: 93.969, R@15: 95.466, R@20: 96.358, R@25: 96.927, R@50: 98.278, R@100: 99.253, R@200: 99.710
+2024-10-09 10:35:45   FLOPs: 357888557056.0, Inference Time: 0.010999441146850586
+2024-10-09 10:35:46   Test set: < BaseDataset, sf-xl-testv1 - #database: 27191; #queries: 1000 >
+2024-10-09 10:38:23   Recalls on < BaseDataset, sf-xl-testv1 - #database: 27191; #queries: 1000 >: R@1: 82.000, R@2: 84.900, R@3: 85.800, R@4: 86.800, R@5: 87.100, R@10: 87.900, R@15: 88.700, R@20: 89.100, R@25: 89.500, R@50: 90.900, R@100: 91.500, R@200: 92.400
+2024-10-09 10:38:23   FLOPs: 357888557056.0, Inference Time: 0.011000394821166992
+2024-10-09 10:38:23   Finished in 0:24:36
