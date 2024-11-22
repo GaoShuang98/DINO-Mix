@@ -1,13 +1,17 @@
+<div align="center">
+
 # DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixing
 
-This is the official repo for "**DINO-Mix: Enhancing Visual Place Recognition with Foundational Vision Model and Feature Mixing"**
+[![Official Repo](http://img.shields.io/badge/official_repo-DINO_Mix-007ACC.svg)](https://github.com/GaoShuang98/DINO-Mix)
+[![Paper](http://img.shields.io/badge/paper-SR-B31B1B.svg)](https://www.nature.com/articles/s41598-024-73853-3)
+[![Paper](http://img.shields.io/badge/paper-arXiv.2311.00230-B31B1B.svg)](https://arxiv.org/abs/2311.00230)
+
+
+</div>
 
 ### Summary
 
  Although most current VPR methods achieve favorable results under ideal conditions, their performance in complex environments, characterized by illumination, seasonal changes, and occlusions caused by moving objects, is generally unsatisfactory. Therefore, obtaining efficient and robust image feature descriptors even in complex environments is a pressing issue in VPR applications. In this study, we utilize the DINOv2 model as the backbone network for trimming and fine-tuning to extract robust image features. We propose a novel VPR architecture called DINO-Mix, which combines a foundational vision model with feature aggregation. This architecture relies on the powerful image feature extraction capabilities of foundational vision models. We employ an MLP-Mixer-based mix module to aggregate image features, resulting in globally robust and generalizable descriptors that enable high-precision VPR. We experimentally demonstrate that the proposed DINO-Mix architecture significantly outperforms current SOTA methods. In test sets having illumination, seasonal changes, and occlusions (Tokyo24/7, Nordland, SF-XL-Testv1), our proposed DINO-Mix architecture achieved Top-1 accuracy rates of 91.75%, 80.18%, and 82%, respectively. Compared with SOTA methods, our architecture exhibited an average accuracy improvement of 5.14%.
-
-
-The link of this paper:[[Paper](https://www.nature.com/articles/s41598-024-73853-3)][[ArXiv](https://arxiv.org/abs/2311.00230)]  
 
 The framework of DINO-Mix as follows:
 
